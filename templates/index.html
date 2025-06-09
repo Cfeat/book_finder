@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISBN 书籍信息查询</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📚 ISBN 书籍信息查询</h1>
+        <form id="search-form">
+            <input type="text" id="isbn-input" placeholder="请输入10位或13位 ISBN 号码" required>
+            <button type="submit">查询</button>
+        </form>
+        
+        <div id="loader" class="loader" style="display: none;"></div>
+        <div id="error-message" class="error"></div>
+        
+        <div id="results-container" style="display: none;">
+            <div class="book-cover">
+                <img id="book-cover-img" src="" alt="书籍封面">
+            </div>
+            <div class="book-details">
+                <h2 id="book-title"></h2>
+                <p><strong>作者:</strong> <span id="book-authors"></span></p>
+                <p><strong>出版社:</strong> <span id="book-publishers"></span></p>
+                <p><strong>出版日期:</strong> <span id="book-publish-date"></span></p>
+                <p><strong>页数:</strong> <span id="book-pages"></span></p>
+                <div id="book-subjects-container">
+                    <strong>主题:</strong>
+                    <div id="book-subjects" class="subjects"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
